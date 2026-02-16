@@ -8,6 +8,12 @@
     },
     {
       "path": "./apps/api-gateway"
+    },
+    {
+      "path": "./apps/order-microservice-e2e"
+    },
+    {
+      "path": "./apps/order-microservice"
     }
   ]
 }

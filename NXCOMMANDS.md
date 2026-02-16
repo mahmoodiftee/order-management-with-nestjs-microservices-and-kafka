@@ -1,6 +1,7 @@
 - create new application
 
 `nx g @nx/nestjs:app apps/app-name`
+`npx nx g @nx/nest:application --directory=apps/app-name --no-interactive`
 
 - serve application
 

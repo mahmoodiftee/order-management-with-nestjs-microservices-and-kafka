@@ -53,7 +53,10 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/api-gateway-e2e/**/*"]
+      "exclude": [
+        "apps/api-gateway-e2e/**/*",
+        "apps/order-microservice-e2e/**/*"
+      ]
     }
   ],
   "targetDefaults": {
