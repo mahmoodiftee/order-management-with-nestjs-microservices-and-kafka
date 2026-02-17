@@ -21,6 +21,7 @@ export class AppController implements OnModuleInit {
   @Post("order")
   createOrder(@Body() order: any) {
     this.kafkaClient.emit("order-created", order);
+    console.log('[Gateway]: Event emitted.', order);
     return { message: "Order set to kafka", order };
   }
 }

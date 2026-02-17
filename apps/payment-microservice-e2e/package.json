@@ -1,0 +1,26 @@
+{
+  "name": "@nest-js-kafka-microservices/payment-microservice-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@nest-js-kafka-microservices/payment-microservice"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/payment-microservice-e2e/jest.config.cts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "@nest-js-kafka-microservices/payment-microservice:build",
+          "@nest-js-kafka-microservices/payment-microservice:serve"
+        ]
+      }
+    }
+  }
+}
