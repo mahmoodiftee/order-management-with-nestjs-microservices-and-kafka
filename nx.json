@@ -56,7 +56,8 @@
       "exclude": [
         "apps/api-gateway-e2e/**/*",
         "apps/order-microservice-e2e/**/*",
-        "apps/payment-microservice-e2e/**/*"
+        "apps/payment-microservice-e2e/**/*",
+        "apps/notification-microservice-e2e/**/*"
       ]
     }
   ],

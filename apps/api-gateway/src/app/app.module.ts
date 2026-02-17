@@ -11,7 +11,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
       options: {
         client: {
           clientId: 'api-gateway',
-          brokers: ["localhost:9092"]
+          brokers: process.env.KAFKA_BROKERS ? process.env.KAFKA_BROKERS.split(',') : ['localhost:9092'],
         }
       }
     }

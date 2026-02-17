@@ -13,17 +13,18 @@ async function bootstrap() {
     transport: Transport.KAFKA,
     options: {
       client: {
+        clientId: 'notification-microservice',
         brokers: process.env.KAFKA_BROKERS ? process.env.KAFKA_BROKERS.split(',') : ['localhost:9092'],
       },
       consumer: {
-        groupId: 'order-consumer-group',
+        groupId: 'notification-microservice',
       },
     },
   });
 
   await app.listen();
   Logger.log(
-    `Application is listening to kafka..`,
+    `Application is listening on kafka..`,
   );
 }
 

@@ -1,13 +1,18 @@
-import { Controller, Get, OnModuleInit } from '@nestjs/common';
+import { Controller, Get, Inject, Logger, OnModuleInit } from '@nestjs/common';
 import { AppService } from './app.service';
 import { EventPattern, Payload } from '@nestjs/microservices';
+import { ClientKafka } from '@nestjs/microservices';
 
 @Controller()
 export class AppController implements OnModuleInit {
-  constructor(private readonly appService: AppService) { }
+  private readonly logger = new Logger(AppController.name);
+  constructor(private readonly appService: AppService,
+    @Inject('KAFKA_SERVICE') private readonly kafkaClient: ClientKafka
+  ) { }
 
   async onModuleInit() {
-    console.log('[Payment-Service]: Initialized and ready.');
+    await this.kafkaClient.connect();
+    this.logger.log('Payment Service initialized and connected to Kafka.');
   }
 
   @Get()
@@ -15,9 +20,10 @@ export class AppController implements OnModuleInit {
     return this.appService.getData();
   }
 
-  @EventPattern("payment-process")
+  @EventPattern("process-payment")
   handlePaymentProcess(@Payload() order: any) {
-    console.log("[Payment-Service]: Received new order:", order);
-    // return {message: "Order confirmed successfully", order};
+    this.logger.log('Payment initiating for new order...');
+    this.kafkaClient.emit('payment-succeeded', order);
+    return { message: "Payment processed successfully", order };
   }
 }

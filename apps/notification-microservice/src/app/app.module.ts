@@ -10,7 +10,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
       transport: Transport.KAFKA,
       options: {
         client: {
-          clientId: 'payment-microservice',
+          clientId: 'notification-microservice',
           brokers: process.env.KAFKA_BROKERS ? process.env.KAFKA_BROKERS.split(',') : ['localhost:9092'],
         }
       }

@@ -1,0 +1,6 @@
+@nest-js-kafka-microservices/payment-microservice-e2e
+@nest-js-kafka-microservices/order-microservice-e2e
+@nest-js-kafka-microservices/payment-microservice
+@nest-js-kafka-microservices/order-microservice
+@nest-js-kafka-microservices/api-gateway-e2e
+@nest-js-kafka-microservices/api-gateway

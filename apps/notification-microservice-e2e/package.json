@@ -1,0 +1,26 @@
+{
+  "name": "@nest-js-kafka-microservices/notification-microservice-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@nest-js-kafka-microservices/notification-microservice"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/notification-microservice-e2e/jest.config.cts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "@nest-js-kafka-microservices/notification-microservice:build",
+          "@nest-js-kafka-microservices/notification-microservice:serve"
+        ]
+      }
+    }
+  }
+}

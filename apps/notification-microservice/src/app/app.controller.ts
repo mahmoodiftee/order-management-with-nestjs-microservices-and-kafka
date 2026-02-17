@@ -14,14 +14,20 @@ export class AppController implements OnModuleInit {
     await this.kafkaClient.connect();
   }
 
+
   @Get()
   getData() {
     return this.appService.getData();
   }
+
   @EventPattern("order-created")
   handleOrderCreated(@Payload() order: any) {
-    this.logger.log(`Received new order: ${JSON.stringify(order)}`);
-    this.kafkaClient.emit('process-payment', order);
-    return { message: "Order created successfully", order };
+    this.logger.log(`Notification: Order received and being processed: ${JSON.stringify(order)}`);
   }
+
+  @EventPattern("payment-succeeded")
+  handlePaymentSucceeded(@Payload() order: any) {
+    this.logger.log(`Notification: Payment succeeded for order: ${JSON.stringify(order)}`);
+  }
+
 }
