@@ -26,6 +26,9 @@
     },
     {
       "path": "./apps/notification-microservice"
+    },
+    {
+      "path": "./libs/shared"
     }
   ]
 }
