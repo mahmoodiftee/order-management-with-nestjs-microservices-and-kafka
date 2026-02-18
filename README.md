@@ -1,4 +1,4 @@
-# Order Management Microservices
+# Simple Demonstration Order Management with NestJS Microservices in an NX Monorepo Using Kafka
 
 [![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)](https://nestjs.com/)
 [![Kafka](https://img.shields.io/badge/Apache%20Kafka-231F20?style=for-the-badge&logo=apache-kafka&logoColor=white)](https://kafka.apache.org/)
@@ -10,6 +10,7 @@
 
 ## Architecture Overview
 
+![Flow Diagram](./assets/nestjs_microservices_kafka.png)
 ![Flow Diagram](./assets/flow-diagram.png)
 
 This project implements a **distributed microservices system** with the following flow:
